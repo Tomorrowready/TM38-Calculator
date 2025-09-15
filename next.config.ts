@@ -1,10 +1,11 @@
 import type {NextConfig} from 'next';
+const repoName = 'TM38-Calculator';
 
 const nextConfig: NextConfig = {
   /* config options here */
   output: 'export',
-  distDir: 'dist',
-  assetPrefix: './',
+  basePath: `/${repoName}`,
+  assetPrefix: `/${repoName}/`,
   trailingSlash: true,
   typescript: {
     ignoreBuildErrors: true,
@@ -37,7 +38,7 @@ const nextConfig: NextConfig = {
   },
   devIndicators: {
     allowedDevOrigins: [
-      '*.cluster-edb2jv34dnhjisxuq5m7l37ccy.cloudworkstations.dev',
+      '*.cuddly-space-guacamole-vwj4rgwg75qfxxpv.github.dev/',
     ],
   },
 };
