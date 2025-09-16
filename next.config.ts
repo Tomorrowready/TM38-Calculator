@@ -1,20 +1,21 @@
 /** @type {import('next').NextConfig} */
-
 const repo = 'TM38-Calculator'
+const isProduction = process.env.NODE_ENV === 'production'
 
 const nextConfig = {
   reactStrictMode: true,
   
-  // Enables the static export required for GitHub Pages [2, 3, 4]
+  // Enables the static export required for GitHub Pages
   output: 'export',
   
-  // Sets the path prefix for routing within the subdirectory 
-  basePath: `/${repo}`,
+  // Add trailing slash for better GitHub Pages compatibility
+  trailingSlash: true,
   
-  // Sets the path prefix for static assets like CSS and JS [5, 6]
-  assetPrefix: `/${repo}/`,
+  // Only set basePath and assetPrefix in production
+  basePath: isProduction ? `/${repo}` : '',
+  assetPrefix: isProduction ? `/${repo}/` : '',
   
-  // Disables server-side image optimization, which is incompatible with static export 
+  // Disables server-side image optimization, which is incompatible with static export
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -26,7 +27,7 @@ const nextConfig = {
       },
     ],
   },
-
+  
   // Your existing project-specific configurations
   typescript: {
     ignoreBuildErrors: true,
@@ -41,5 +42,4 @@ const nextConfig = {
   },
 };
 
-// Use the correct CommonJS syntax for exporting the configuration
 module.exports = nextConfig;

@@ -79,9 +79,6 @@
       "electron.js",
       "package.json"
     ],
-    "experimental": {
-      "allowedDevOrigins":
-    },
     "directories": {
       "buildResources": "assets",
       "output": "release"
